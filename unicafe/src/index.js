@@ -9,7 +9,10 @@ const App = () => {
 
   const Statistic = ({text, value}) =>{
       return (
-        <p>{text} {value}</p>
+          <tr>
+              <td>{text}</td>
+              <td>{value}</td>
+          </tr>
       )
   }
   const Statistics = (props) => {
@@ -23,12 +26,16 @@ const App = () => {
           return (
             <div>
                 <h1>statistics</h1>
-                <Statistic text="good" value ={props.good} />
-                <Statistic text="neutral" value ={props.neutral} />
-                <Statistic text="bad" value ={props.bad} />
-                <Statistic text="all" value ={props.all} />
-                <Statistic text="average" value ={(props.good-props.bad)/props.all} />
-                <Statistic text="positive" value ={props.good/props.all} />
+                <table>
+                    <tbody>
+                        <Statistic text="good" value ={props.good} />
+                        <Statistic text="neutral" value ={props.neutral} />
+                        <Statistic text="bad" value ={props.bad} />
+                        <Statistic text="all" value ={props.all} />
+                        <Statistic text="average" value ={(props.good-props.bad)/props.all} />
+                        <Statistic text="positive" value ={props.good/props.all} />
+                    </tbody>
+                </table>
             </div>
             )
         }
