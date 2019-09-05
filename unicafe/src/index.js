@@ -8,17 +8,25 @@ const App = () => {
   const [bad, setBad] = useState(0)
 
   const Statistics = (props) => {
-      return (
-          <div>
-              <h1>statistics</h1>
-              <p>good {props.good}</p>
-              <p>neutral {props.neutral}</p>
-              <p>bad {props.bad}</p>
-              <p>all {props.all}</p>
-              <p>average {(props.good-props.bad)/props.all}</p>
-              <p>positive {props.good/props.all}%</p>
-          </div>
-      )
+      if (props.all === 0) {
+          return (
+              <div>
+                  <p>No Feedback Given</p>
+              </div>
+          )
+      } else { 
+          return (
+            <div>
+                <h1>statistics</h1>
+                <p>good {props.good}</p>
+                <p>neutral {props.neutral}</p>
+                <p>bad {props.bad}</p>
+                <p>all {props.all}</p>
+                <p>average {(props.good-props.bad)/props.all}</p>
+                <p>positive {props.good/props.all}%</p>
+            </div>
+            )
+        }
   }
   let all = good + bad + neutral
   return (
